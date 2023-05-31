@@ -3,6 +3,9 @@ import Home from './components/Home'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Nav from './components/Nav'
+import Models from './components/Models';
+import Posts from './components/Posts';
+
 
 function App() {
   return (
@@ -10,6 +13,8 @@ function App() {
     <Header/>
     <Nav/>
     <Home/>
+    <Models/>
+    <Posts/>
     <Footer/>
     </div>
   );

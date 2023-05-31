@@ -3,7 +3,12 @@ import React from "react";
 
 function Home () {
 return ( 
-<h1>hi</h1>
+
+<main>
+    <div><h>Home Page</h></div>
+    <div><p>Home page this is where we write a short intorduction.</p></div>
+</main>
+
 )
 }
 
