@@ -5,16 +5,21 @@ import Footer from './components/Footer';
 import Nav from './components/Nav'
 import Models from './components/Models';
 import Posts from './components/Posts';
-
+import Form from './components/Form';
 
 function App() {
   return (
     <div className="App">
-    <Header/>
+    <div>
+      <Header/>
+      <Form/>
+    </div>
+   
     <Nav/>
     <Home/>
     <Models/>
     <Posts/>
+   
     <Footer/>
     </div>
   );
