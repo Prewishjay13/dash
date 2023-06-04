@@ -1,27 +1,28 @@
 import React from "react";
 import "../style.css"
-function Form () {
 
+function Form() {
+return (
     <main>
-    <form className="form">
-        <input 
-            type="text"
-            placeholder="Top text"
-            className="form--input"
-        />
-        <input 
-            type="text"
-            placeholder="Bottom text"
-            className="form--input"
-        />
-        <button 
-            className="form--button"
-        >
-            Predict
-        </button>
-    </form>
+        <div className="form">
+                <input 
+                    type="text"
+                    placeholder="Top text"
+                    className="form--input"
+                />
+                <input 
+                    type="text"
+                    placeholder="Bottom text"
+                    className="form--input"
+                />
+                <button 
+                    className="form--button"
+                >
+                    Predict
+                </button>
+            </div>
 </main>
-
+)
 }
 
 export default Form;

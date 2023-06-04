@@ -15,6 +15,24 @@ function Post(props) {
 }
 export default Post;
 
+// function App() {
+//     const thingsArray = ["Thing 1", "Thing 2"]
+    
+//     /**
+//      * Challenge: Map over the thingsArray to generate
+//      * a <p> element for each item and render them on the page
+//      * below the button
+//      */
+    
+//     const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+    
+//     return (
+//         <div>
+//             <button>Add Item</button>
+//             {thingsElements}
+//         </div>
+//     )
+// }
 
 // export default function Card(props) {
 //     let badgeText
