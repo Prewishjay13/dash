@@ -2,14 +2,21 @@ import React from "react";
 
 function Models () {
 
-    const h = "hello";
-    const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"]
+    const [thingsArray, setThingsArray] = React.useState(["Thing 1", "Thing 2"])
     
-    //react renders each item from an array automatically
-    return(
+    function addItem() {
+        setThingsArray(prevState => {
+            //...prevState makes sure all the items of the previous array is added as well to the new array
+            return [...prevState, `Thing ${prevState.length + 1}`]
+        })
+    }
+    
+    const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+    
+    return (
         <div>
-            <h>{h}</h>
-            <p>{colors}</p>
+            <button onClick={addItem}>Add Item</button>
+            {thingsElements}
         </div>
     )
 }

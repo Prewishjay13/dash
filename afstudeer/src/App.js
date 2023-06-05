@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header';
 // import Footer from './components/Footer';
-// import Models from './components/Models';
+import Models from './components/Models';
 // import Posts from './components/Posts';
 import Form from './components/Form';
 
@@ -13,7 +13,7 @@ function App() {
       <Header/>
       <Form/>
     </div>
-    
+    <Models/>
     </div>
   );
 }
