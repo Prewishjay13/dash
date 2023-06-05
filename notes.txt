@@ -1,0 +1,34 @@
+ aray destructuring:
+ bij de usestate heb je een array met een default waarde erin en een functie hiervoor gebruik je: React.useState
+ in de onderstaande vb is result naam van de variable en func naam van de functie result is in dit geval de "Yes" en func is er niet omdat er geen functie 
+ geschreven is in de array
+ const [result, func] = React.useState("Yes")
+console.log(result); geeft in dit geval alleen yes als waarde
+
+ de functie is zodat je de waarde van de variable kan aanpassen.
+ vb:  const [isImportant, setIsImportant] = React.useState("Yes")
+    function handleClick() {
+        setIsImportant("No")
+    }
+
+naamgeving:
+ const [isImportant, setIsImportant]   variable naam eerst en dan set voor de functie naam met variable naam
+
+   const [count, setCount] = React.useState(0)
+    
+    function add() {
+        setCount(count + 1)
+    }
+    
+    function subtract() {
+        setCount(count - 1)
+    }
+    
+    return (
+        <div className="counter">
+            <button className="counter--minus" onClick={subtract}>–</button>
+            <div className="counter--count">
+                <h1>{count}</h1>
+            </div>
+            <button className="counter--plus" onClick={add}>+</button>
+        </div>
