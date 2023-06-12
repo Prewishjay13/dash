@@ -18,7 +18,7 @@ return (
                 <button 
                     className="form--button"
                 >
-                    Predict
+                    Calculate
                 </button>
             </div>
 </main>

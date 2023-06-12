@@ -43,3 +43,39 @@ naamgeving:
         setCount(prevCount => prevCount - 1)
     }
     
+    einde voorbeeld
+
+    vb 2:
+        )
+ function add() {
+        setCount(prevCount => prevCount + 1)
+    }
+    
+    function subtract() {
+        setCount(prevCount => prevCount - 1)
+    }
+    
+    console.log("App component rendered")
+    
+    return (
+        <div className="counter">
+            <button className="counter--minus" onClick={subtract}>–</button>
+            <Count number={count} />
+            <button className="counter--plus" onClick={add}>+</button>
+        </div>
+
+
+
+export default function Count(props) {
+    console.log("Count component rendered")
+    
+    return (
+        <div className="counter--count">
+            <h1>{props.number}</h1>
+        </div>
+    )
+}
+
+einde voorbeeld2
+
+
