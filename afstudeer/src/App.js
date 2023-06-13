@@ -1,19 +1,20 @@
 import './App.css';
-import Header from './components/Header';
-// import Footer from './components/Footer';
-import Models from './components/Models';
-// import Posts from './components/Posts';
-import Form from './components/Form';
+import CsvUpload from './components/Csvtest';
 
 function App() {
+
+  const handleBackClick = () => {
+    // Handle back click logic
+  };
+
+  const handleSubmit = (csvData) => {
+    // Handle submit logic
+  };
   return (
     <div className="App">
-      
-    <div>
-      <Header/>
-      <Form/>
-    </div>
-    <Models/>
+
+
+<CsvUpload handleBackClick={handleBackClick} onSubmit={handleSubmit} />
     </div>
   );
 }

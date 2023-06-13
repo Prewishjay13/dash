@@ -6,33 +6,10 @@
 .nav-bar {
   display: flex;
 }
-/* 
-main {
-  padding: 57px 27px;
-  color: white;
-  background-image: url(./images/react-icon-large.png);
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: 75%;
-}
 
-.main--title {
-  margin: 0;
-  font-size: 39px;
-  letter-spacing: -0.05em;
-}
-
-.main--facts {
-  margin-top: 46px;
-  max-width: 400px;
-}
-
-.main--facts > li {
-  line-height: 19px;
-  padding-block: 10px;
-}
-
-.main--facts > li::marker {
-  font-size: 1.4rem;
+nav > h3 {
+  margin-right: auto;
   color: #61DAFB;
-} */
+  font-weight: 700;
+  font-size: 22px;
+}
