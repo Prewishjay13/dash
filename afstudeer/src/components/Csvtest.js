@@ -13,9 +13,11 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
       header: true,
       dynamicTyping: true,
       complete: function (results) {
+        
         // console.log(results.data);
         const headers = Object.keys(results.data[0]);
         const values = {};
+
         headers.forEach((header) => {
           values[header] = results.data.map((row) => row[header]);
         });
@@ -27,12 +29,29 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
       },
     });
   };
+
   const getHeaderValues = () => {
     return headerValues;
   };
+
   return (
     <div className="mupload">
       <input type="file" accept=".csv" onChange={handleCsvUpload} />
+      <div>
+        <button onClick={() => console.log(getHeaderValues())}>
+          Get Header Values
+        </button>
+      </div>
+      <div>
+        {csvHeaders.length > 0 && (
+          <ul>
+            {csvHeaders.map((header, index) => (
+              <li key={index}>{header}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      
       {data.length ? (
         <table className="table">
           <thead>
@@ -53,22 +72,6 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
           </tbody>
         </table>
       ) : null}
-
-      <div>
-        {csvHeaders.length > 0 && (
-          <ul>
-            {csvHeaders.map((header, index) => (
-              <li key={index}>{header}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div>
-        <button onClick={() => console.log(getHeaderValues())}>
-          Get Header Values
-        </button>
-      </div>
 
     </div>
 
