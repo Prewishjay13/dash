@@ -1,0 +1,23 @@
+to add a navigation bar:
+installl the react-router-dom library: npm i react-router-dom
+
+go to the index.js file:
+import BrowserRouter from react-router-dom
+wrapp the <App/> with <BrouwserRouter><App/><BrouwserRouter>
+
+Go to the file where ur navigation bar script is written:
+import: Routes, Route, Link from react-router-dom
+
+this is example script for a navbar:
+     <div>
+                <nav className="nav">
+                    <Link to="/" className="nav-item">Home</Link>
+                    <Link to="/models" className="nav-item">Models</Link>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Home />}/>     
+                    <Route path="/models" element={<Models />}/>
+                </Routes>
+            </div>
+
+Link makes sure the page refreshes to the page u click on, Route makes sure the url changes as well

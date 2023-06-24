@@ -1,22 +1,21 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom';
-
-
+import {Routes, Route, Link} from 'react-router-dom'
+import Home from './Home';
+import Models from './Models';
 function Nav() {
-    const navStyle = {
-        color: 'white'
-    };
+
     return (
-        <nav>
-            <h3>Logo</h3>
-            <ul className="nav-Links">
-                <Link style={navStyle} to="/Home">
-                    <li>Projects</li>
-                </Link>
-            
-            </ul>
-        </nav>
+
+            <div>
+                <nav className="nav">
+                    <Link to="/" className="nav-item">Home</Link>
+                    <Link to="/models" className="nav-item">Models</Link>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Home />}/>     
+                    <Route path="/models" element={<Models />}/>
+                </Routes>
+            </div>
     );
 }
 

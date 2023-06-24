@@ -1,5 +1,5 @@
 import './App.css';
-import CsvUpload from './components/Csvtest';
+//import CsvUpload from './components/Csvtest';
 import Nav from './components/Nav';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
 
 <Nav/>
-<CsvUpload/>
+
     </div>
   );
 }
