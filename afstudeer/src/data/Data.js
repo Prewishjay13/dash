@@ -1,4 +1,4 @@
-export default [
+const Data = [
     {
         titel: "Regression",
         text: "I can't wait to see her face light up when she opens it."
@@ -24,3 +24,5 @@ export default [
         text: "Brain.js information"
     }
 ]
+
+export default Data;
