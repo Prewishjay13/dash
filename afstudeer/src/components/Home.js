@@ -5,7 +5,9 @@ function Home () {
 return ( 
 
 <main>
-    <div><h>Home Page</h></div>
+    <div>
+        <h>Home Page</h>
+    </div>
     
 </main>
 
