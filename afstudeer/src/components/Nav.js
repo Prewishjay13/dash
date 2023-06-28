@@ -4,17 +4,19 @@ import Home from './Home';
 import Models from './Models';
 import Posts from './Posts';
 import About from './About';
-
+import '../style.css';
 function Nav() {
 
     return (
 
             <div>
                 <nav className="nav">
-                    <Link to="/" className="nav-item">Home</Link>
-                    <Link to="/models" className="nav-item">Models</Link>
-                    <Link to="/posts" className="nav-item">Posts</Link>
-                    <Link to="/about" className="nav-item">About</Link>
+                   <ul> 
+                    <li><Link to="/" className="nav-item">Home</Link></li>
+                    <li><Link to="/models" className="nav-item">Models</Link></li>
+                    <li><Link to="/posts" className="nav-item">Posts</Link></li>
+                    <li><Link to="/about" className="nav-item">About</Link></li>
+                    </ul> 
                 </nav>
                 <Routes>
                     <Route path="/" element={<Home />}/>     
