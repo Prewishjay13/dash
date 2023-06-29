@@ -4,6 +4,7 @@ import Home from './Home';
 import Models from './Models';
 import Posts from './Posts';
 import About from './About';
+import CsvUpload from './Csvtest';
 import '../style.css';
 function Nav() {
 
@@ -16,6 +17,7 @@ function Nav() {
                     <li><Link to="/models" className="nav-item">Models</Link></li>
                     <li><Link to="/posts" className="nav-item">Posts</Link></li>
                     <li><Link to="/about" className="nav-item">About</Link></li>
+                    <li><Link to="/csv" className="nav-item">CSV</Link></li>
                     </ul> 
                 </nav>
                 <Routes>
@@ -23,6 +25,7 @@ function Nav() {
                     <Route path="/models" element={<Models />}/>
                     <Route path="/posts" element={<Posts />}/>
                     <Route path="/about" element={<About />}/>
+                    <Route path="/csv" element={<CsvUpload />}/>
                 </Routes>
             </div>
     );

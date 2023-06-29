@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Papa from 'papaparse';
 
 export default function CsvUpload({ handleBackClick, onSubmit }) {
+
   const [data, setData] = useState([]);
   const [csvHeaders, setCsvHeaders] = useState([]);
   const [headerValues, setHeaderValues] = useState({});
 
   const handleCsvUpload = (e) => {
+    
     const file = e.target.files[0];
 
     Papa.parse(file, {
@@ -34,14 +36,14 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
     return headerValues;
   };
 
-  return (
-    <div className="mupload">
-      <input type="file" accept=".csv" onChange={handleCsvUpload} />
-      <div>
-        <button onClick={() => console.log(getHeaderValues())}>
-          Get Header Values
-        </button>
-      </div>
+    return (
+     <div className="mupload">
+        <input type="file" accept=".csv" onChange={handleCsvUpload} />
+        <div>
+          <button onClick={() => console.log(getHeaderValues())}>
+            Get Header Values
+          </button>
+        </div>
       <div>
         {csvHeaders.length > 0 && (
           <ul>
