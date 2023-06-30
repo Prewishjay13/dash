@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import '../style.css';
+
+
 export default function Csv({ handleBackClick, onSubmit }) {
 
   const [data, setData] = useState([]);
@@ -28,6 +30,7 @@ export default function Csv({ handleBackClick, onSubmit }) {
         console.log('CSV Headers:', Object.keys(results.data[0]));
         setData(results.data);
         setHeaderValues(values);
+        
       },
     });
   };
