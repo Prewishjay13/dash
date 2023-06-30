@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 To install the papaparse library to parse in the csv files:
 ### `npm i papaparse`
+
+to install tensorflowjs:
+### `npm install @tensorflow/tfjs`
+bron: https://towardsdatascience.com/custom-object-detection-using-react-with-tensorflow-js-7f79adee9cd4
+documentatie zegt: npm install @tensorflow/tfjs-node, but this doesnt work!
+documentation: https://www.tensorflow.org/js/tutorials/setup#nodejs_setup
+
+
+charts:
+documentation: https://recharts.org/en-US/guide/getting-started 

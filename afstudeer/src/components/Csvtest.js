@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
-
-export default function CsvUpload({ handleBackClick, onSubmit }) {
+import '../style.css';
+export default function Csv({ handleBackClick, onSubmit }) {
 
   const [data, setData] = useState([]);
   const [csvHeaders, setCsvHeaders] = useState([]);
@@ -32,19 +32,24 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
     });
   };
 
+
   const getHeaderValues = () => {
     return headerValues;
   };
 
+
     return (
-     <div className="mupload">
+     <div className="upload">
+
         <input type="file" accept=".csv" onChange={handleCsvUpload} />
+
         <div>
           <button onClick={() => console.log(getHeaderValues())}>
             Get Header Values
           </button>
         </div>
-      <div>
+
+      <div className='header-names'>
         {csvHeaders.length > 0 && (
           <ul>
             {csvHeaders.map((header, index) => (
@@ -53,7 +58,7 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
           </ul>
         )}
       </div>
-      
+      <div className='table'>
       {data.length ? (
         <table className="table">
           <thead>
@@ -74,9 +79,8 @@ export default function CsvUpload({ handleBackClick, onSubmit }) {
           </tbody>
         </table>
       ) : null}
-
     </div>
-
+    </div>
 
   );
 }

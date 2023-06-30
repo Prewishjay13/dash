@@ -39,3 +39,18 @@
   .text-container {
     padding: 20px
   }
+
+  .upload {
+    background-color: #ffffff;
+    border: 2px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px 4px rgba(8, 8, 8, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .header-names {
+      padding: 20px
+  }
