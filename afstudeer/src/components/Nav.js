@@ -7,7 +7,9 @@ import About from './About';
 import Table from './Csvtable';
 import Csv from './Csvtest';
 import Upload from './CsvUpload';
+import Rice from './examples/Rice';
 import '../style.css';
+
 function Nav() {
 
     return (
@@ -22,6 +24,7 @@ function Nav() {
                     <li><Link to="/table" className="nav-item">Table</Link></li>
                     <li><Link to="/test" className="nav-item">Test</Link></li>
                     <li><Link to="/upload" className="nav-item">Upload</Link></li>
+                    <li><Link to="/rice" className="nav-item">Rice</Link></li>
 
                     </ul> 
                 </nav>
@@ -29,10 +32,12 @@ function Nav() {
                     <Route path="/" element={<Home />}/>     
                     <Route path="/models" element={<Models />}/>
                     <Route path="/posts" element={<Posts />}/>
+                
                     <Route path="/about" element={<About />}/>
                     <Route path="/table" element={<Table />}/>
                     <Route path="/test" element={<Csv />}/>
                     <Route path="/upload" element={<Upload />}/>
+                    <Route path="/rice" element={<Rice />}/>
                    
                 </Routes>
             </div>
