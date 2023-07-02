@@ -1,9 +1,9 @@
 import React from 'react';
 import {Routes, Route, Link} from 'react-router-dom'
-import Home from './Home';
-import Models from './Models';
+import Home from '../screens/Home';
+import Models from '../screens/Models';
 import Posts from './Posts';
-import About from './About';
+import About from '../screens/About';
 import Table from './Csvtable';
 import Csv from './Csvtest';
 import Upload from './CsvUpload';
