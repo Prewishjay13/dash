@@ -68,6 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 To install the papaparse library to parse in the csv files:
 ### `npm i papaparse`
+npm install react-papaparse --save
 
 To install xlsx:
 ### `npm i xlsx`

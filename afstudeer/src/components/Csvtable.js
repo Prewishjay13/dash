@@ -12,8 +12,11 @@ function Table() {
 
   // onchange event
   const handleFile=(e)=>{
+
     let fileTypes = ['application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','text/csv'];
+    
     let selectedFile = e.target.files[0];
+    
     if(selectedFile){
       if(selectedFile&&fileTypes.includes(selectedFile.type)){
         setTypeError(null);

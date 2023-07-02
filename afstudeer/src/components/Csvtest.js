@@ -3,7 +3,7 @@ import Papa from 'papaparse';
 import '../style.css';
 
 
-export default function Csv({ handleBackClick, onSubmit }) {
+export default function Csv() {
 
   const [data, setData] = useState([]);
   const [csvHeaders, setCsvHeaders] = useState([]);

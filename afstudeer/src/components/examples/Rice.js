@@ -1,37 +1,34 @@
-import React from "react";
-import { useState, useEffect, useRef } from "react";
-import * as tf from '@tensorflow/tfjs'
-import Data from './data/Data.csv'
+import React, { useState, useEffect } from "react";
+import Papa from 'papaparse';
+
 export default function Rice() {
-    const model = useRef(null)
-    
-    React.useEffect(() => {
-        const loadCSV = () => {
-            readRemoteFile(Data, {
-            download: true,
-            header:true,
-            dynamictyping: true,
-            complete: (results) => {
-                    csvLoaded(results.data)
-                }
-            })
+
+
+  React.useEffect(() => {
+    const loadData = () => {
+      Papa.parse('.Data.csv', {
+        // download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: function (results) {
+
+          console.log("hi")
+          console.log("result: " + results.object.data)
+           const jsonData = JSON.stringify(results.object.data);
+          console.log("result: " + jsonData);
+
+          console.log('CSV Headers:', Object.keys(results.data[0]));
+       
+          
         }
-        const csvLoaded = (data) => {
-            console.log("DATA LOADED")
-            console.log(data)
-        }
-    
-        loadCSV()
-    }, [])
-    
-    const predict = () => {
-        // Predict
-    }
-    
-    return (
-        <div>
-            <button onPress={predict}>Predict</button>
-        </div>
-    );
-  }
+      });
+    };
+
+    loadData();
+  }, [])
+  return <div>Rice Component</div>;
+}
+
+
+
 

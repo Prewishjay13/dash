@@ -21,8 +21,8 @@ function Nav() {
                     <li><Link to="/models" className="nav-item">Models</Link></li>
                     <li><Link to="/posts" className="nav-item">Posts</Link></li>
                     <li><Link to="/about" className="nav-item">About</Link></li>
-                    <li><Link to="/table" className="nav-item">Table</Link></li>
                     <li><Link to="/test" className="nav-item">Test</Link></li>
+                    <li><Link to="/table" className="nav-item">Table</Link></li>
                     <li><Link to="/upload" className="nav-item">Upload</Link></li>
                     <li><Link to="/rice" className="nav-item">Rice</Link></li>
 
