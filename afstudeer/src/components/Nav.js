@@ -1,13 +1,14 @@
 import React from 'react';
 import {Routes, Route, Link} from 'react-router-dom'
-import Home from '../screens/Home';
-import Models from '../screens/Models';
+import Home from '../pages/Home';
+import Models from '../pages/Models';
 import Posts from './Posts';
-import About from '../screens/About';
+import About from '../pages/About';
 import Table from './Csvtable';
 import Csv from './Csvtest';
 import Upload from './CsvUpload';
 import Rice from './examples/Rice';
+import Graph from './Graph';
 import '../style.css';
 
 function Nav() {
@@ -25,7 +26,7 @@ function Nav() {
                     <li><Link to="/table" className="nav-item">Table</Link></li>
                     <li><Link to="/upload" className="nav-item">Upload</Link></li>
                     <li><Link to="/rice" className="nav-item">Rice</Link></li>
-
+                    <li><Link to="/graph" className="nav-item">Graph</Link></li>
                     </ul> 
                 </nav>
                 <Routes>
@@ -38,6 +39,7 @@ function Nav() {
                     <Route path="/test" element={<Csv />}/>
                     <Route path="/upload" element={<Upload />}/>
                     <Route path="/rice" element={<Rice />}/>
+                    <Route path="/graph" element={<Graph />}/>
                    
                 </Routes>
             </div>
