@@ -18,6 +18,7 @@ export default function Csv() {
         dynamicTyping: true,
         complete: function (results) {
 
+          results.data.map((o) => { o["isChecked"] = 0; });
           console.log("result1: " + results.data)
           const jsonData = JSON.stringify(results.data);
           console.log("result2: " + jsonData);
@@ -28,9 +29,11 @@ export default function Csv() {
         // csvHeaders.forEach((header) => {
         //   headerValues[header] = results.data.map((row) => row[header]);
         // });
+  
         const headerValues = csvHeaders.map((header) =>
         results.data.map((row) => row[header])
       );
+     
         //logt de headers
         console.log('CSV Headers:', Object.keys(results.data[0]));
         setData(results.data);
@@ -45,7 +48,13 @@ export default function Csv() {
     return headerValues;
   };
 
-
+  const handleCheckboxChange = (id) => {
+    setData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, selected: !item.selected } : item
+      )
+    );
+  };
     return (
      <div className="upload">
 
@@ -57,7 +66,6 @@ export default function Csv() {
           </button>
         </div>
 
-   
       <div className="table-responsive">
       <table>
         <thead>
@@ -71,8 +79,23 @@ export default function Csv() {
         {data.map((row, i) => (
               <tr key={i}>
                 {csvHeaders.map((header, j) => (
-                  <td key={j}>{row[header]}</td>
-                ))}
+                 <React.Fragment key={j}>
+                 {header === "isChecked" ? (
+                   // Render custom content for "isChecked" header
+                   <td>
+                     {/* Your custom content for "isChecked" header */}
+                     {/* For example, render a checkbox */}
+                     <input
+                       type="checkbox"
+                       checked={row[header]}
+                       onChange={() => handleCheckboxChange(i)}
+                     />
+                   </td>
+                 ) : (
+                   // Render regular column values for other headers
+                   <td>{row[header]}</td>
+                 )}
+               </React.Fragment>))}
               </tr>
             ))}
         </tbody>

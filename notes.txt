@@ -79,3 +79,61 @@ export default function Count(props) {
 einde voorbeeld2
 
 
+==============================
+
+component:
+
+    vars:
+        data
+        header
+        values
+
+    functies:
+        handleCsvUpload() -> vult data, header, values
+        trainModel() -> gebruikt header, values
+            * wanneer je deze knopt drukt, header en values niet leeg zijn
+            -> getSelectedData()
+
+
+            
+===============
+
+- input csvfile dump (lees headers en vaules en data)
+- upload: get headers in 2 kollomen van input en outputs
+- select input & select outputs
+- train trainModel
+    form, keuze voor model, cross val etc, en andere settings 
+- load trainModel
+- form met selected inputs
+- use model
+
+
+
+{
+    "id":1,
+    "name":"john",
+    "area":123,
+
+    "isChecked": false    
+    
+}
+
+
+
+
+<table>
+<tr>
+    <td> </td>
+    <td> </td>
+    <td> </td> <---- 0, isChecked
+</tr>
+<tr>
+    <td> </td>
+    <td> </td>
+    <td> </td> <----- 0, isChecked
+</tr>
+</table>
+
+----------------------------
+row 1 data 1 | row 1 data 2
+row 2 data 1 | row 2 data 2

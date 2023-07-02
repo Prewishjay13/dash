@@ -12,6 +12,14 @@ function Graph() {
     { name: "Telegram", users: 500000000 },
   ];
 
+  console.log("Users:");
+  data.forEach((item) => {
+    console.log(item.users);
+  });
+  
+const userIndex = 1; // Index of the user you want to log (e.g., 1 for Instagram)
+console.log("User:", data[userIndex].users);
+
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Socail Media Users</h1>
