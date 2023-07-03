@@ -3,7 +3,7 @@ import '../style.css';
 //import ReactDOM from 'react-dom/client';
 import {Link} from 'react-router-dom';
 import scatter from '../images/scatter.png';
-import line from '../images/scatter.png';
+import line from '../images/line.png';
 function Charts () {
     return ( 
     

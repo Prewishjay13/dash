@@ -7,6 +7,7 @@ export default function Lineplot() {
   const [csvHeaders, setCsvHeaders] = useState([]);
   const [selectedHeaders, setSelectedHeaders] = useState([]);
   const [file, setFile] = useState(null);
+  const [colorMap, setColorMap] = useState({});
 
   const handleFileUpload = (event) => {
     const selectedFile = event.target.files[0];
@@ -28,6 +29,20 @@ export default function Lineplot() {
     setData(results.data);
     setCsvHeaders(csvHeaders);
     setSelectedHeaders([csvHeaders[0]]); // Set default selected header
+    generateColorMap(csvHeaders);
+  };
+
+  const generateColorMap = (headers) => {
+    const colorMap = {};
+    headers.forEach((header, index) => {
+      colorMap[header] = getColorByIndex(index);
+    });
+    setColorMap(colorMap);
+  };
+
+  const getColorByIndex = (index) => {
+    const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff7f5a', '#ca82da', '#5aafff', '#ff5aa8', '#ff0000', '#000000'];
+    return colors[index % colors.length];
   };
 
   const parseCSV = (file) => {
@@ -71,12 +86,12 @@ export default function Lineplot() {
               <YAxis />
               <Tooltip />
               <Legend />
-              {selectedHeaders.map((header) => (
+              {selectedHeaders.map((header, index) => (
                 <Line
                   key={header}
                   type="monotone"
                   dataKey={header}
-                  stroke="#8884d8"
+                  stroke={colorMap[header]}
                   activeDot={{ r: 8 }}
                 />
               ))}
