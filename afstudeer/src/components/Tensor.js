@@ -131,7 +131,7 @@ export default function Tensor() {
             ))}
           </div>
         
-        <div>
+        <div className='train'>
           <button type="button" onClick={trainModel} disabled={isModelTrained || selectedInputs.length === 0 || !selectedOutput}>
             Train Model
           </button>

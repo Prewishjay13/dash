@@ -8,7 +8,7 @@ import line from '../images/line.png';
 function Charts () {
     return ( 
     
-        <div>
+        <div className="collection">
         <Link to="/scatterplot" className="nav-item">
           <div className="chart-box">
             <h2>Scatter plot</h2>

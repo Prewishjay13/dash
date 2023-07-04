@@ -96,12 +96,12 @@ export default function Knn () {
         </div>
 
       {showButton && (
-        <section>
+        <div className='train'>
           <h3>Train</h3>
-          <button type="button" onClick={trainModel}>
+          <button  type="button" onClick={trainModel}>
             Train Model
           </button>
-        </section>
+        </div>
       )}
 
       {csvHeaders.length > 0 && (
