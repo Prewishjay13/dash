@@ -1,15 +1,11 @@
-import React from "react";
-import '../style.css';
-import ReactDOM from 'react-dom/client';
-import { useState, useEffect } from "react";
-import {Link} from 'react-router-dom'
-import Papa from "papaparse";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import * as tf from "@tensorflow/tfjs";
-import "@tensorflow/tfjs";
-import { createNeuralNetwork } from "./createNeuralNetwork.js"
+import Papa from "papaparse";
+import "../style.css";
 
-function Home () {
-    const [csvHeaders, setCSVHeaders] = useState([]);
+function Home() {
+  const [csvHeaders, setCSVHeaders] = useState([]);
   const [inputHeaders, setInputHeaders] = useState([]);
   const [outputHeaders, setOutputHeaders] = useState([]);
   const [selectedValues, setSelectedValues] = useState([]);
@@ -75,7 +71,6 @@ function Home () {
       output: outputValues,
     });
 
-    
     trainModel(inputValues, outputValues);
   };
 
@@ -89,7 +84,8 @@ function Home () {
     const model = tf.sequential();
     model.add(tf.layers.dense({ units: 1, inputShape: [1] }));
     model.compile({ loss: "meanSquaredError", optimizer: "sgd" });
-    model.fit(inputTensors, outputTensors, { epochs: 10 })
+    model
+      .fit(inputTensors, outputTensors, { epochs: 10 })
       .then(() => {
         console.log("Model trained successfully!");
         predictModel(model, inputTensors);
@@ -114,99 +110,90 @@ function Home () {
   };
 
   const selectedHeaders = [...inputHeaders, ...outputHeaders];
-return ( 
-//  <Link to="/posts" className="nav-item">  
-//     <div className="box-one">
-//         <h>Home Page</h>
-//         <p>Welcome to the Home page. This is where</p>
-//     </div>
-// </Link>
 
-<div className="models-container">
-<input type="file" accept=".csv" onChange={handleFileUpload} />
+  return (
+    <div className="models-container">
+      <input type="file" accept=".csv" onChange={handleFileUpload} />
 
-{csvHeaders.length > 0 && (
-  <div className="header-list-container">
-    <div className="header-list">
-      <h3 className="header-title">Input Headers:</h3>
-      <ul>
-        {csvHeaders.map((header) => (
-          <li key={header}>
-            <label>
-              <input
-                type="checkbox"
-                checked={inputHeaders.includes(header)}
-                onChange={() => handleCheckboxChange(header, "input")}
-              />
-              {header}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {csvHeaders.length > 0 && (
+        <div className="header-list-container">
+          <div className="header-list">
+            <h3 className="header-title">Input Headers:</h3>
+            <ul>
+              {csvHeaders.map((header) => (
+                <li key={header}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={inputHeaders.includes(header)}
+                      onChange={() => handleCheckboxChange(header, "input")}
+                    />
+                    {header}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-    <div className="header-list">
-      <h3 className="header-title">Output Headers:</h3>
-      <ul>
-        {csvHeaders.map((header) => (
-          <li key={header}>
-            <label>
-              <input
-                type="checkbox"
-                checked={outputHeaders.includes(header)}
-                onChange={() => handleCheckboxChange(header, "output")}
-              />
-              {header}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-)}
+          <div className="header-list">
+            <h3 className="header-title">Output Headers:</h3>
+            <ul>
+              {csvHeaders.map((header) => (
+                <li key={header}>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={outputHeaders.includes(header)}
+                      onChange={() => handleCheckboxChange(header, "output")}
+                    />
+                    {header}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
 
-{showButton && <button onClick={handleButtonClick}>Show Selected Values</button>}
+      {showButton && <button onClick={handleButtonClick}>Show Selected Values</button>}
 
-{selectedValues.input && selectedValues.input.length > 0 && (
-  <div className="selected-values-container">
-    <h3>Selected Input Values:</h3>
-    <ul>
-      {selectedValues.input.map((value, index) => (
-        <li key={index}>
-          <strong>{value.header}:</strong>
+      {selectedValues.input && selectedValues.input.length > 0 && (
+        <div className="selected-values-container">
+          <h3>Selected Input Values:</h3>
           <ul>
-            {value.values.map((val, idx) => (
-              <li key={idx}>{val}</li>
+            {selectedValues.input.map((value, index) => (
+              <li key={index}>
+                <strong>{value.header}:</strong>
+                <ul>
+                  {value.values.map((val, idx) => (
+                    <li key={idx}>{val}</li>
+                  ))}
+                </ul>
+              </li>
             ))}
           </ul>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+        </div>
+      )}
 
-{selectedValues.output && selectedValues.output.length > 0 && (
-  <div className="selected-values-container">
-    <h3>Selected Output Values:</h3>
-    <ul>
-      {selectedValues.output.map((value, index) => (
-        <li key={index}>
-          <strong>{value.header}:</strong>
+      {selectedValues.output && selectedValues.output.length > 0 && (
+        <div className="selected-values-container">
+          <h3>Selected Output Values:</h3>
           <ul>
-            {value.values.map((val, idx) => (
-              <li key={idx}>{val}</li>
+            {selectedValues.output.map((value, index) => (
+              <li key={index}>
+                <strong>{value.header}:</strong>
+                <ul>
+                  {value.values.map((val, idx) => (
+                    <li key={idx}>{val}</li>
+                  ))}
+                </ul>
+              </li>
             ))}
           </ul>
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
-</div>
-);
-
-
-
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default Home;

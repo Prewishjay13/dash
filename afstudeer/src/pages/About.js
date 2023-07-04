@@ -1,12 +1,9 @@
-import React from "react";
-import '../style.css';
+import React, { useState, useEffect, useRef } from 'react';
 
-function About () {
+
+export default function About() {
+
     return(
-     <div className="text-container">   
-        <h>About</h>
-     </div>
+        <h>e</h>
     )
 }
-
-export default About;

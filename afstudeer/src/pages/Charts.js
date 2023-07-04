@@ -4,6 +4,7 @@ import '../style.css';
 import {Link} from 'react-router-dom';
 import scatter from '../images/scatter.png';
 import line from '../images/line.png';
+
 function Charts () {
     return ( 
     
