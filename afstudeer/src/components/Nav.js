@@ -38,12 +38,12 @@ function Nav() {
                     <Route path="/charts" element={<Charts />}/>     
                     <Route path="/models" element={<Models />}/>
                     <Route path="/knn" element={<Knn />} />
+                    <Route path="/tensor" element={<Tensor />}/>
                     <Route path="/posts" element={<Posts />}/>
                     <Route path="/about" element={<About />}/>
                     <Route path="/table" element={<Table />}/>
                     <Route path="/test" element={<Csv />}/>
                     <Route path="/upload" element={<Upload />}/>
-                    <Route path="/tensor" element={<Tensor />}/>
                     <Route path="/scatterplot" element={<Scatterplot />}/>
                     <Route path="/lineplot" element={<Lineplot />}/>
 

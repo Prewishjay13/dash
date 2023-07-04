@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Papa from 'papaparse';
 import knn from 'knear';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Label } from 'recharts';
-
+import '../knn.css';
 export default function Knn () {
 
   const [kValue, setKValue] = useState(2);
-  
+
   const machine = useRef(new knn.kNear(kValue));
   const [prediction, setPrediction] = useState('');
   const [formInputs, setFormInputs] = useState({});
@@ -80,26 +80,31 @@ export default function Knn () {
     setKValue(newKValue);
   };
 
-  return (
-    <div>
-      <h2>Predict cats or dogs based on body features</h2>
+   return (
+    <div className="container">
+      <h2>KNN</h2>
 
-      <div>
-        <label htmlFor="k-value">K Value:</label>
-        <input type="number" id="k-value" name="k-value" value={kValue} onChange={handleKValueChange} />
-      </div>
+      <section>
+        <h3>Upload</h3>
+        <div>
+          <label htmlFor="k-value">K Value:</label>
+          <input type="number" id="k-value" name="k-value" value={kValue} onChange={handleKValueChange} />
+        </div>
 
-      <input type="file" accept=".csv" onChange={handleFileUpload} />
+        <input type="file" accept=".csv" onChange={handleFileUpload} />
+      </section>
 
       {showButton && (
-        <button type="button" onClick={trainModel}>
-          Train Model
-        </button>
+        <section>
+          <h3>Train</h3>
+          <button type="button" onClick={trainModel}>
+            Train Model
+          </button>
+        </section>
       )}
 
-      {/* Display CSV headers for input/output selection */}
       {csvHeaders.length > 0 && (
-        <div>
+        <section>
           <h3>Select Input and Output Headers</h3>
           <div>
             <strong>Input Headers:</strong>
@@ -142,35 +147,47 @@ export default function Knn () {
               </div>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
-      <form>
-        {inputHeaders.map((header) => (
-          <div key={header}>
-            <label htmlFor={header}>{header}</label>
-            <input type="number" id={header} name={header} onChange={handleInputChange} />
-          </div>
-        ))}
-        <button type="button" onClick={makePrediction}>
-          Predict!
-        </button>
-      </form>
-      <p>Predicted Category: {prediction}</p>
+      <section>
+        <h3>Predict</h3>
+        <form>
+          {inputHeaders.map((header) => (
+            <div key={header}>
+              <label htmlFor={header}>{header}</label>
+              <input type="number" id={header} name={header} onChange={handleInputChange} />
+            </div>
+          ))}
+          <button type="button" onClick={makePrediction}>
+            Predict!
+          </button>
+        </form>
+        <p>Predicted Category: {prediction}</p>
+      </section>
 
       {chartData.length > 0 && (
-        <ScatterChart width={400} height={300}>
-          <CartesianGrid />
-          <XAxis type="number" dataKey="x" name={csvHeaders[0]}>
-            <Label value={csvHeaders[0]} offset={-5} position="insideBottom" />
-          </XAxis>
-          <YAxis type="number" dataKey="y" name={csvHeaders[1]}>
-            <Label value={csvHeaders[1]} angle={-90} position="insideLeft" />
-          </YAxis>
-          <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-          <Scatter name="Data" data={chartData} fill="#8884d8" />
-          <Scatter name="Prediction" data={[{ x: parseFloat(formInputs[inputHeaders[0]]), y: parseFloat(formInputs[inputHeaders[1]]) }]} fill="red" />
-        </ScatterChart>
+        <section>
+          <h3>Graph</h3>
+          <ScatterChart width={400} height={300}>
+            <CartesianGrid />
+            <XAxis type="number" dataKey="x" name={csvHeaders[0]}>
+              <Label value={csvHeaders[0]} offset={-5} position="insideBottom" />
+            </XAxis>
+            <YAxis type="number" dataKey="y" name={csvHeaders[1]}>
+              <Label value={csvHeaders[1]} angle={-90} position="insideLeft" />
+            </YAxis>
+            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Scatter name="Data" data={chartData} fill="#8884d8" />
+            <Scatter
+              name="Prediction"
+              data={[
+                { x: parseFloat(formInputs[inputHeaders[0]]), y: parseFloat(formInputs[inputHeaders[1]]) },
+              ]}
+              fill="red"
+            />
+          </ScatterChart>
+        </section>
       )}
     </div>
   );
