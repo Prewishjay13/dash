@@ -1,0 +1,86 @@
+import React, { useState, useEffect, useRef} from 'react';
+import * as tf from '@tensorflow/tfjs';
+import Papa from 'papaparse';
+import { createNeuralNetwork } from "./createNeuralNetwork.js";
+
+export default function Tensor() {
+  const [prediction, setPrediction] = useState('');
+  const [hp, onChangeHP] = useState(50);
+  const [weight, onChangeWeight] = useState(2000);
+  const machine = useRef();
+  const [normalizeValues, setNormalizeValues] = useState(null);
+
+  const makePrediction = () => {
+    const userInput = tf.tensor2d([[hp, weight]]);
+    const nc = normalizeValues;
+    const normInput = userInput.sub(nc.inputMin).div(nc.inputMax.sub(nc.inputMin));
+    const predictionTF = machine.predict(normInput);
+    const unnormalizedPredictionTF = predictionTF.mul(nc.labelMax.sub(nc.labelMin)).add(nc.labelMin);
+    const prediction = Math.round(unnormalizedPredictionTF.dataSync()[0]);
+
+    setPrediction(prediction);
+  };
+
+  useEffect(() => {
+    const loadCSV = () => {
+      Papa.parse(carsData, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        complete: (results) => {
+          csvLoaded(results.data);
+        },
+      });
+    };
+
+    const csvLoaded = async (data) => {
+      data.sort(() => Math.random() - 0.5);
+
+      const inputs = data.map((d) => [d.horsepower, d.weight]);
+      const outputs = data.map((d) => d.mpg);
+      const [model, normValues] = await createNeuralNetwork(inputs, outputs);
+
+      setMachine(model);
+      setNormalizeValues(normValues);
+    };
+
+    loadCSV();
+  }, []);
+
+  return (
+    <div>
+      <p>
+        Use TensorFlow to predict the MPG (miles per gallon) of a car, based on weight and horsepower of the car.
+        Miles per Gallon should vary between 9 and 50.
+      </p>
+
+      <div>
+        <p>horsepower (46~230)</p>
+        <p>weight (1613~5140)</p>
+      </div>
+
+      <div>
+        <input
+          type="number"
+          onChange={(e) => onChangeHP(parseInt(e.target.value))}
+          value={hp}
+        />
+        <input
+          type="number"
+          onChange={(e) => onChangeWeight(parseInt(e.target.value))}
+          value={weight}
+        />
+      </div>
+
+      <button onClick={makePrediction}>
+        Predict MPG
+      </button>
+
+      {prediction && (
+        <p style={{ marginTop: '10px', fontWeight: 'bold' }}>
+          The MPG of this car is {prediction}!
+        </p>
+      )}
+    </div>
+  );
+}

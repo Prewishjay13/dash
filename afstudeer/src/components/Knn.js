@@ -81,18 +81,19 @@ export default function Knn () {
   };
 
    return (
-    <div className="container">
+    <div className="models-container">
       <h2>KNN</h2>
 
-      <section>
+      
         <h3>Upload</h3>
-        <div>
+        <div className='k-input'>
           <label htmlFor="k-value">K Value:</label>
           <input type="number" id="k-value" name="k-value" value={kValue} onChange={handleKValueChange} />
         </div>
 
+        <div className='input'>
         <input type="file" accept=".csv" onChange={handleFileUpload} />
-      </section>
+        </div>
 
       {showButton && (
         <section>
@@ -104,12 +105,12 @@ export default function Knn () {
       )}
 
       {csvHeaders.length > 0 && (
-        <section>
-          <h3>Select Input and Output Headers</h3>
-          <div>
-            <strong>Input Headers:</strong>
+        <div className="header-list-container">
+        <div className="header-list">
+          <h3 className="header-title">Select the factors:</h3>
+          <ul>
             {csvHeaders.map((header) => (
-              <div key={header}>
+              <li key={header}>
                 <label>
                   <input
                     type="checkbox"
@@ -119,13 +120,16 @@ export default function Knn () {
                   />
                   {header}
                 </label>
-              </div>
+              </li>
             ))}
+             </ul>
           </div>
-          <div>
-            <strong>Output Headers:</strong>
+
+          <div className="header-list">
+            <h3 className="header-title">Select Predicted Value:</h3>
+            <ul>
             {csvHeaders.map((header) => (
-              <div key={header}>
+              <li key={header}>
                 <label>
                   <input
                     type="checkbox"
@@ -144,13 +148,14 @@ export default function Knn () {
                   />
                   {header}
                 </label>
-              </div>
-            ))}
+              </li>
+            ))}</ul>
           </div>
-        </section>
+        </div>
       )}
 
       <section>
+      <div className="form-container">
         <h3>Predict</h3>
         <form>
           {inputHeaders.map((header) => (
@@ -163,6 +168,7 @@ export default function Knn () {
             Predict!
           </button>
         </form>
+        </div>
         <p>Predicted Category: {prediction}</p>
       </section>
 
