@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import Papa from 'papaparse';
 import '../knn.css';
+
 export default function Tensor() {
   const [prediction, setPrediction] = useState('');
   const [machine, setMachine] = useState(null);

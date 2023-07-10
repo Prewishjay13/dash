@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .nav {
   background-color: #f1f1f1;
   padding: 10px;
@@ -55,7 +59,7 @@
       padding: 20px
   }
 
-  .chart-box {
+  /* .chart-box {
     background-color: #ffffff;
     border: 2px;
     border-radius: 4px;
@@ -76,36 +80,28 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-  }
-  /* .collection {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .chart-box {
-    flex: 1;
   } */
 
-  .upload-box {
+  /* .upload-box {
     background-color: #ffffff;
     border: 2px;
     border-radius: 4px;
     box-shadow: 1px 1px 3px 4px rgba(8, 8, 8, 0.1);
     padding: 20px;
     width: 300px;
-    margin: 40px auto 20px; /* Updated margin with 40px top margin and 20px bottom margin */
+    margin: 40px auto 20px;
     margin-bottom: 20px;
     text-align: center;
-  }
+  } */
   
-  .labels {
+  /* .labels {
     margin-bottom: 20px;
-  }
+  } */
   
-  .check-labels label {
+  /* .check-labels label {
     display: flex;
     align-items: center;
-  }
+  } */
   
   .scatter-chart {
     margin-top: 20px;
@@ -125,25 +121,4 @@
     
     transform: rotate(-90deg);
     margin-right: 20px;
-  }
-
-
-  .home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-  }
-
-  .home h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-  .home p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    line-height: 1.5;
   }
