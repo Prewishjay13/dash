@@ -18,7 +18,9 @@ export default function Models () {
           <div class="p-4">
             <h2 class="text-xl font-bold mb-2">KNN</h2>
             <p class="text-base">
-              If a dog chews shoes, whose shoes does he choose?
+            Classification is like sorting things into different groups based on their characteristics. For example, 
+            it's like sorting fruits into categories like apples, bananas, 
+            and oranges based on how they look or other traits.
             </p>
             <div class="flex justify-end mt-4">
               <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
@@ -37,7 +39,8 @@ export default function Models () {
           <div class="p-4">
             <h2 class="text-xl font-bold mb-2">Tensorflow regression</h2>
             <p class="text-base">
-              If a dog chews shoes, whose shoes does he choose?
+            Linear regression is like drawing a straight line through a cloud of points on a graph to show the general trend, 
+            helping you make predictions about new points in the same area.
             </p>
             <div class="flex justify-end mt-4">
               <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
