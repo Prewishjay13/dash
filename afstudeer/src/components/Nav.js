@@ -6,12 +6,16 @@ import Models from "../pages/Models";
 import Knn from "./Knn";
 import About from "../pages/About";
 import Table from "./Csvtable";
-//import Csv from './Csvtest';
+import Health from "./Health";
+import Finance from "./Finance";
+import Retail from "./Retail";
+import Customer from "./Customer"
 import Upload from "./CsvUpload";
 import Tensor from "./Tensor";
 import Scatterplot from "./Scatterplot";
 import Lineplot from "./Lineplot";
 import "../style.css";
+import Knntut from "./Knntut";
 
 function Nav() {
   return (
@@ -94,13 +98,13 @@ function Nav() {
 
             <li>
               <Link to="/about" className="nav-item">
-                About
+                Examples
               </Link>
             </li>
 
             <li>
               <Link to="/table" className="nav-item">
-                Table
+                Learn more
               </Link>
             </li>
             <li>
@@ -127,6 +131,14 @@ function Nav() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/scatterplot" element={<Scatterplot />} />
           <Route path="/lineplot" element={<Lineplot />} />
+
+          <Route path="/health" element={<Health />} />
+          <Route path="/finance" element={<Finance />} />
+          <Route path="/retail" element={<Retail />} />
+
+          <Route path="/customer" element={<Customer />} />
+          <Route path="/knntut" element={<Knntut/>} />
+
         </Routes>
       </div>
     </>

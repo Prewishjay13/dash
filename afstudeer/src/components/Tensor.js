@@ -120,7 +120,7 @@ export default function Tensor() {
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div className="card w-96 bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Selected factors:</h2>
+                <h2 className="card-title">Select wat you need for your prediction:</h2>
                 <div className="card-actions justify-start">
                   <ul>
                     {Object.keys(csvData[0]).map((key) => (
@@ -144,7 +144,7 @@ export default function Tensor() {
 
             <div className="card w-96 bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Selected factors:</h2>
+                <h2 className="card-title">Select wat you want to predict:</h2>
                 <div className="card-actions justify-start">
                   <ul>
                     {Object.keys(csvData[0]).map((key) => (

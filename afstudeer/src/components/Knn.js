@@ -98,7 +98,7 @@ export default function Knn() {
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="label">
-            <span className="label-text">Chooses your name?</span>
+            <span className="label-text">Upload dataset:</span>
           </label>
           <input
             type="file"
@@ -109,7 +109,7 @@ export default function Knn() {
         </div>
         <div>
           <label className="label">
-            <span className="label-text">Description</span>
+            <span className="label-text">K-value</span>
           </label>
           <input
             type="number"
@@ -135,7 +135,7 @@ export default function Knn() {
           <div className="grid grid-cols-2 gap-4">
             <div className="card w-96 bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Selected input values:</h2>
+                <h2 className="card-title">Select wat you need to predict:</h2>
                 <div className="card-actions justify-start">
                   <ul>
                     {csvHeaders.map((header) => (
@@ -159,7 +159,7 @@ export default function Knn() {
 
             <div className="card w-96 bg-base-100 shadow-xl">
               <div className="card-body">
-                <h2 className="card-title">Select predicted value:</h2>
+                <h2 className="card-title">Select wat u want to predict:</h2>
                 <div className="card-actions justify-start">
                   <ul>
                     {csvHeaders.map((header) => (

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import '../style.css';
-import knn from '../images/knn.jpeg';
+import knn from '../images/knn.png';
 import tensor from "../images/tensor.png";
 export default function Models () {
 
@@ -16,7 +16,7 @@ export default function Models () {
               class="object-cover w-full h-full" />
           </div>
           <div class="p-4">
-            <h2 class="text-xl font-bold mb-2">KNN</h2>
+            <h2 class="text-xl font-bold mb-2">Classification</h2>
             <p class="text-base">
             Classification is like sorting things into different groups based on their characteristics. For example, 
             it's like sorting fruits into categories like apples, bananas, 
@@ -37,10 +37,10 @@ export default function Models () {
               class="object-cover w-full h-full" />
           </div>
           <div class="p-4">
-            <h2 class="text-xl font-bold mb-2">Tensorflow regression</h2>
+            <h2 class="text-xl font-bold mb-2">Regression</h2>
             <p class="text-base">
             Linear regression is like drawing a straight line through a cloud of points on a graph to show the general trend, 
-            helping you make predictions about new points in the same area.
+            helping you make predictions about new points in the same area. It can be used to calculate prices, estimated values.
             </p>
             <div class="flex justify-end mt-4">
               <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">

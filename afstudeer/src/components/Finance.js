@@ -1,30 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style.css";
-import knn from "../images/knn.png"
-import tensor from "../images/tensor.png"
+import health from "../images/health.png"
+import finance from "../images/finance.png"
+import retail from "../images/retail.png"
 
-
-
-export default function Table() {
+export default function About() {
   return (
     <>
       <div className="flex items-center justify-center h-screen">
         <div className="flex flex-wrap space-x-4 pt-8">
           <Card
-            image={knn}
-            title="Knn/ klassificatie"
-            content="Dit pagina geeft een uitleg over KNN en klassificatie"
-            link="/knntut"
+            image={health}
+            title="Credit card fraud"
+            content=""
+            link="/health"
           />
               <Card
-            image={tensor}
-            title="Linaire regressie"
-            content="Deze pagina geeft een uitleg over wat regressie inhoudt"
+            image={finance}
+            title="Risk assessment"
+            content=""
             link="/finance"
           />
           
-          
+          <Card
+            image={retail}
+            title="Customer targeting"
+            content=""
+            link="/customer"
+          />
           {/* Add more Card components here */}
         </div>
       </div>
